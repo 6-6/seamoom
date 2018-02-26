@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我们的时间</title>
+    <link rel="stylesheet" href="css/theater.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="assets/style/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+        canvas {
+            display: block;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .content {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 200px;
+        }
+
+        .rabitBg {
+            position: fixed;
+            left: 0;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <canvas id="fullstarbg">你的浏览器不支持canvas标签</canvas>
+        <div class="content">
+            <img src="rabit.png" class="rabitBg" />
+
+            <div class="saybox">
+                <p id="say1"></p>
+                <p id="say2"></p>
+                <p id="say3"></p>
+                <p id="say4"></p>
+                <p id="say5"></p>
+                <p id="say6"></p>
+                <p id="say7"></p>
+                <p id="say8"></p>
+                <p id="say9"></p>
+            </div>
+
+            <div id="ourDate">
+                <span>我们在一起</span>
+                <span id="ourDay"></span>
+                <span>天了！</span>
+            </div>
+
+            <div id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/images/star.svg" alt="">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>第一次见面</h2>
+                        <img src="img/20161016_192036.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/images/book.svg" alt="">
+                    </div>
+                    <div class="timeline-content right">
+                        <h2>第一次去玩</h2>
+                        <img src="img/20170102_121142.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/images/star.svg" alt="">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>神兽与你</h2>
+                        <img src="img/20170827_121154.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/images/book.svg" alt="">
+                    </div>
+                    <div class="timeline-content right">
+                        <h2>哇你好亮！</h2>
+                        <img src="img/20171002_154335.jpg" alt="">
+                    </div>
+                </div>  
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/images/star.svg" alt="">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>小时候的你</h2>
+                        <img src="img/mmexport1518448975608.jpg" alt="">
+                    </div>
+                </div>                
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/images/book.svg" alt="">
+                    </div>
+                    <div class="timeline-content right">
+                        <h2>我们</h2>
+                        <img src="img/20180106_214640.jpg" alt="">
+                    </div>
+                </div>                 
+            </div>
+            <iframe id="musicPlay" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=2118573443&auto=1&height=430"></iframe>            
+
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/starbg.js"></script>
+    <script src="js/theater.min.js"></script>
+    <script>
+        $(function () {
+            $(".input_cover").mousedown(function () {
+                $(this).hide();
+                $(this).siblings("input").addClass("cur");
+                $("#sercHead").focus();
+                return false;
+
+            })
+
+            function typeWords() {
+                var theater = new TheaterJS();
+
+                theater
+                    .describe("say1", .8, "#say1")
+                    .describe("say2", .6, "#say2")
+                    .describe("say3", .6, "#say3")
+                    .describe("say4", .8, "#say4")
+                    .describe("say5", .6, "#say5")
+                    .describe("say6", .6, "#say6")
+                    .describe("say7", .8, "#say7")
+                    .describe("say8", .6, "#say8")
+                    .describe("say9", .6, "#say9");
+
+                theater
+                    .write("say1:你好啊，秦海月。", 600)
+                    .write("say2:这是一个记录我们故事的地方。", 600)
+                    .write("say3:我们的故事开始于2017年2月26日。", 600)
+                    .write("say4:异地恋一年了呢。你在南，我在北。", 600)
+                    .write("say5:300多公里的距离，还是让我们长时间不能相见。", 600)
+                    .write("say6:可我说：我们可比牛郎和织女幸运多了，一年能见好几次呢，哈哈！", 600)
+                    .write("say7:我们在一起的时光总是很开心，遇见你真是我的好运气。", 600)
+                    .write("say8:你就是我的小太阳，有你我感觉到温暖。", 300, "我爱你，秦海月！")
+                    .write("say9:我们的故事还未完成……", 600);
+                theater
+                    .on("say:start, erase:start", function () {
+                        // add blinking caret
+                    })
+                    .on("say:end, erase:end", function () {
+                        // remove blinking caret
+                    })
+                    .on("*", function () {
+                        // do something
+                    });
+            }
+            typeWords();
+
+            function ourDate() {
+                var oDate = new Date();
+                var curDate = Date();
+                oDate.setFullYear(2017, 2, 26); //时间年月日
+                // oDate.setHours(16); //小时	
+                // oDate.setMinutes(53); //分钟
+                // oDate.setSeconds(0); //秒前一位
+                // oDate.setMilliseconds(2); //秒第二位
+                //alert(Date.parse(curDate));
+                //alert(Date.parse(oDate));
+                var sec = (Date.parse(curDate) - Date.parse(oDate)) / 1000;
+                var day = Math.floor(sec / (3600 * 24));
+                return day;
+            }
+
+
+            function writeDate() {
+                var day = ourDate();
+                $("#ourDay").text(day);
+            }
+            writeDate();
+        });
+    </script>
+</body>
+
+</html>
